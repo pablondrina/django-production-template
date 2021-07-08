@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # CORE SETTINGS
 # ==============================================================================
 
-SECRET_KEY = config("SECRET_KEY", default="django-insecure$simple.settings.local")
+SECRET_KEY = config("SECRET_KEY", default="django-insecure$project.settings.local")
 
 DEBUG = config("DEBUG", default=True, cast=bool)
 
@@ -23,17 +23,17 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "simple.apps.accounts",
-    "simple.apps.core",
+    "project.apps.accounts",
+    "project.apps.core",
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-ROOT_URLCONF = "simple.urls"
+ROOT_URLCONF = "project.urls"
 
 INTERNAL_IPS = ["127.0.0.1"]
 
-WSGI_APPLICATION = "simple.wsgi.application"
+WSGI_APPLICATION = "project.wsgi.application"
 
 
 # ==============================================================================
@@ -78,7 +78,7 @@ TEMPLATES = [
 
 DATABASES = {
     "default": dj_database_url.config(
-        default=config("DATABASE_URL", default="postgres://simple:simple@localhost:5432/simple"),
+        default=config("DATABASE_URL", default="postgres://project:project@localhost:5432/project"),
         conn_max_age=600,
     )
 }
