@@ -1,6 +1,5 @@
 ## 1. Project setup
 
-***
 ###1.1 Create a virtual environment
 
 #### Considering you already have Python installed, ok
