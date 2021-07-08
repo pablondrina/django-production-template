@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ block.super }} {% endblock title %}
+
+{% block header %}
+{% if user.is_authenticated %}
+    {% if user.first_name %}
+        <h2>Seja bem-vindo, {{ user.first_name }}!</h2>
+    {% else %}
+        <h2>Seja bem-vindo!</h2>
+        <h4>Complete seu cadastro, queremos chamar você pelo nome :)</h4>
+    {% endif %}
+
+<p>Somente membros registrados podem ver este conteúdo.</p>
+
+{% else %}
+    <h2>Bem-vindo!</h2>
+    <p>Conteúdo aberto a todos.</p>
+    <p><a href="{% url 'accounts:signup' %}">Crie uma conta</a> para ter acesso ao conteúdo exclusivo.</p>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<!--Main content-->
+
+{% endblock content %}
+
+{% block footer %}
+<!-- Footer content -->
+
+{% endblock footer %}

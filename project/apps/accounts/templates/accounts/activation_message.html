@@ -1,0 +1,12 @@
+{% autoescape off %}
+
+Por favor, clique no link abaixo para confirmar seu cadastro:
+
+http://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}
+
+___
+Se você recebeu esta mensagem por engano, basta excluí-la. Você não será cadastrado se não clicar no link de confirmação acima.
+
+Ficou com alguma dúvida? Veja a seção de perguntas frequentes no nosso site ou entre em contato com suporte@nelsonboulagerie.com.br para mais informações.
+
+{% endautoescape %}

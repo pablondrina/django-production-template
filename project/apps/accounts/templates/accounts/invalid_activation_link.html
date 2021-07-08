@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Confirmar cadastro • {{ block.super }} {% endblock title %}
+
+{% block content %}
+<h2>Hum, algo deu errado.</h2>
+<br>
+<h4>Infelizmente este link não é válido. É possível que já tenha sido utilizado.</h4>
+<!--TODO: Disponibilizar link aqui para solicitação de reenvio, com campo para phone/email-->
+<h4>Disponibilizar link aqui para solicitação de reenvio, com campo para phone/email</h4>
+<br>
+<a class="button" href="{% url 'accounts:home' %}">Voltar para o site</a>
+<hr>
+<p>
+Problemas para ativar sua conta? Entre em contato com <a href="mailto:suporte@nelsonboulagerie.com.br">suporte@nelsonboulagerie.com.br</a>
+</p>
+{% endblock content %}

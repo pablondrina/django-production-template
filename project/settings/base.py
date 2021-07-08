@@ -108,9 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # I18N AND L10N SETTINGS
 # ==============================================================================
 
-LANGUAGE_CODE = config("LANGUAGE_CODE", default="en-us")
+LANGUAGE_CODE = config("LANGUAGE_CODE", default="pt-br")
 
-TIME_ZONE = config("TIME_ZONE", default="UTC")
+TIME_ZONE = config("TIME_ZONE", default="America/Sao_Paulo")
 
 USE_I18N = True
 
@@ -149,6 +149,10 @@ MEDIA_ROOT = BASE_DIR.parent.parent / "media"
 # ==============================================================================
 # THIRD-PARTY SETTINGS
 # ==============================================================================
+
+WHATSAPP_API_INSTANCE = config('WHATSAPP_API_INSTANCE', default='')  # TODO: Deprecated: only for z-API
+
+WHATSAPP_API_TOKEN = config('WHATSAPP_API_TOKEN', default='')  # TODO: Deprecated: only for z-API
 
 
 # ==============================================================================

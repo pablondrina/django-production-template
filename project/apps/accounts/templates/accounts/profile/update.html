@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ block.super }} {% endblock title %}
+
+{% block header %}
+{% if user.is_authenticated %}
+    {% if user.first_name %}
+        <h2>Perfil de cliente</h2>
+        <h4>Mantenha seu perfil atualizado. Levamos privacidade a sério. Não compartilhamos seus dados com terceiros sem sua autorização, sob nenhuma hipótese.</h4>
+    {% else %}
+<h2>Complete seu cadastro</h2>
+<h4>É necessário definir uma senha para poder utilizar sua nova conta. Além disso, queremos chamar você pelo nome :)</h4>
+    {% endif %}
+{% else %}
+    <h2>Bem-vindo!</h2>
+    <p>Conteúdo aberto a todos.</p>
+    <p><a href="{% url 'accounts:signup' %}">Crie uma conta</a> para ter acesso ao conteúdo exclusivo.</p>
+{% endif %}
+{% endblock header %}
+
+{% block content %}
+<!--Main content-->
+    <form method="post">
+    {% csrf_token %}
+
+    {% include 'form.html' %}
+
+    <input type="submit" value="salvar">
+    <input type="hidden" name="next" value="{{ request.path }}">
+
+    </form>
+{% endblock content %}
+
+{% block footer %}
+<hr>
+<!-- Footer content -->
+{% if user.password %}
+<p>
+    <a href="{% url 'accounts:password_change' %}">Clique aqui</a> para alterar a senha
+</p>
+{% else %}
+
+{% endif %}
+
+{% endblock footer %}

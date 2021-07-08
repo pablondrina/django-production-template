@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Cadastre-se • {{ block.super }} {% endblock title %}
+
+{% block header %}
+<h2>Entre pra família Nelson!</h2>
+<h4>Informe seu <strong>whatsapp</strong> para poder fazer encomendas do jeito mais fácil e seguro e ter acesso a informações exclusivas.</h4>
+{% endblock header %}
+
+{% block content %}
+<form method="post" action="{% url 'accounts:signup' %}">
+    {% csrf_token %}
+
+    {% include 'form.html' %}
+
+    <input type="submit" value="cadastrar-se">
+    <input type="hidden" name="next" value="{{ request.path }}">
+
+</form>
+
+{% endblock content %}
+
+{% block footer %}
+<hr>
+<p>
+  Se você já tem uma conta, <a href="{% url 'accounts:login' %}">clique aqui</a> para entrar.
+</p>
+{% endblock footer %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Confirmar cadastro • {{ block.super }} {% endblock title %}
+
+{% block content %}
+<h2>Quase lá… Precisamos confirmar seu número de whatsapp.</h2>
+<br>
+<h4>Para concluir o cadastro, clique no link que acabamos de enviar para o whatsapp informado.</h4>
+<br>
+<a class="button" href="{% url 'accounts:home' %}">Voltar para o site</a>
+<hr>
+<p>
+    Não recebeu o link? Entre em contato pelo whatsapp <a href="https://web.whatsapp.com/send?phone=554384043939">(43) 98404-3939</a> . E lembre-se de nos adicionar à sua lista de contatos, isso garante que você receberá todas as nossas mensagens :)
+</p>
+{% endblock content %}
