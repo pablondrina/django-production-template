@@ -30,9 +30,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django.contrib.gis',
 
     # Third-party applications
     'tabbed_admin',
+    'import_export',
 
     # My applications
     "project.apps.accounts",
@@ -178,8 +180,9 @@ MEDIA_ROOT = BASE_DIR.parent.parent / "media"
 # THIRD-PARTY SETTINGS
 # ==============================================================================
 
-WHATSAPP_API_INSTANCE = config('WHATSAPP_API_INSTANCE', default='')  # TODO: Deprecated: only for z-API
+TABBED_ADMIN_USE_JQUERY_UI = True
 
+WHATSAPP_API_INSTANCE = config('WHATSAPP_API_INSTANCE', default='')  # TODO: Deprecated: only for z-API
 WHATSAPP_API_TOKEN = config('WHATSAPP_API_TOKEN', default='')  # TODO: Deprecated: only for z-API
 
 
