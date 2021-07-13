@@ -13,8 +13,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from .models import PhoneNumber, EmailAddress
 from ..places.models import Address
-from ..sales.admin import CustomerOrderInline
-from ..sales.models import Order
+# from ..sales.admin import CustomerOrderInline
+# from ..sales.models import Order
 
 User = get_user_model()
 
@@ -98,7 +98,7 @@ class UserAdmin(ImportExportActionModelAdmin, TabbedModelAdmin, UserAdmin):
 
     list_display = ('get_full_name', 'phone', 'email',)
     list_editable = ('phone', 'email',)
-    list_filter = ('groups', HasAddressFilter, 'addresses__city')
+    list_filter = ('groups', HasAddressFilter,) # 'addresses__city'
     search_fields = ('email', 'phone', 'first_name', 'last_name',)
     ordering = ('first_name',)
     filter_horizontal = ('groups', 'user_permissions',)

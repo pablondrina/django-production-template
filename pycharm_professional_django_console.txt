@@ -8,7 +8,7 @@ sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])
 # Change the run script on 'Settings > Build Execution and Deployment > Console > Python Console' to
 # hoping you have your settings at project/project/settings.py (if not, change accordingly;)
 
-import os,sys,django;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])
-os.environ['DJANGO_SETTINGS_MODULE'] = WORKING_DIR_AND_PYTHON_PATHS.split('/')[-1]+'.settings'
-print('Python {0} on {1} using {2} as settings'.format(sys.version, sys.platform, os.environ['DJANGO_SETTINGS_MODULE']))
+import os,sys,django;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS]);
+os.environ['DJANGO_SETTINGS_MODULE'] = sys.path[-1].split('/')[-1]+'.settings.base';
+print('Python %s on %s using %s as settings' % (sys.version, sys.platform, os.environ['DJANGO_SETTINGS_MODULE']));
 django.setup()

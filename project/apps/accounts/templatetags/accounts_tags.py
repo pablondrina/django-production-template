@@ -1,5 +1,5 @@
 from django import template
-from utils.phone_confirmation.models import AbstractPhoneNumber
+from project.utils.phone_confirmation.models import AbstractPhoneNumber
 
 
 register = template.Library()

@@ -1,0 +1,17 @@
+{% extends 'tabbed_admin/change_form.html' %}
+
+{% block submit_buttons_bottom %}
+<!-- TODO: Fazer custom css pelas vias normais, para poder usar uma classe descentemente. Essa media query não funcionou bem sendo chamada por aqui...-->
+<style>
+    @media (max-width: 767px) {
+        .main-button {float:none;}
+    }
+    .main-button { float:right; margin-left: 0 0 0 8px; }
+</style>
+
+<!--<div class="submit-row">-->
+<!--    <input class="main-button" type="submit" value="Aplicar dados do mapa" name="_pull_geodata">-->
+<!--</div>-->
+
+{{ block.super }}
+{% endblock %}

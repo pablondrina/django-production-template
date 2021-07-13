@@ -1,7 +1,7 @@
 ## 1. Project setup
 
 ###1.1 Create a virtual environment
-
+(revisar essa parte, ver forma mais padronizada)
 #### Considering you already have Python installed, ok
 
 ####Install pipx:
@@ -40,18 +40,25 @@
 
 ***
 ###1.5 Install and config Postgres & Postgis
-#### Criando o banco de dados e o usuário PostgreSQL
 `sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl`
+#### Criando o banco de dados e o usuário PostgreSQL
 
-`sudo -u postgres psql
-CREATE DATABASE nerp;
+`sudo -u postgres psql`
+
+`CREATE DATABASE nerp;
 CREATE USER nerp WITH PASSWORD 'N3ls0n1997!';
 ALTER ROLE nerp SET client_encoding TO 'utf8';
 ALTER ROLE nerp SET default_transaction_isolation TO 'read committed';
 ALTER ROLE nerp SET timezone TO 'UTC-3';
-GRANT ALL PRIVILEGES ON DATABASE nerp TO nerp;
-\q
-exit`
+GRANT ALL PRIVILEGES ON DATABASE nerp TO nerp; CREATE EXTENSION postgis;`
+
+`\q #exit`
+
+#### Adicionando a extensão postgis ao banco de dados nerp
+
+`sudo -u postgres psql nerp`
+
+`CREATE EXTENSION postgis;`
 
 ***
 
@@ -82,7 +89,10 @@ sudo apt-get install binutils libproj-dev gdal-bin
 #### Instalar o Postgis
 `sudo apt-get install postgis postgresql-12-postgis-scripts`
 
-`sudo apt-get install postgresql-server-dev-12 python-psycopg2`
+`sudo apt-get install postgresql-server-dev-12 # python-psycopg2`
+
+
+
 
 ***
 ###1.5 Start the django project

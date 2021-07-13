@@ -4,9 +4,16 @@ psycopg2-binary==2.9.1
 python-decouple==3.4
 pytz==2021.1
 
+pillow
 requests
 phonenumberslite~=8.12.27
+geopy
 
 django-phonenumber-field
 django-import-export
 django-map-widgets
+
+django-admin-interface
+django-tabbed-admin
+django-import-export
+django-autocomplete-light

@@ -17,14 +17,28 @@ DEBUG = config("DEBUG", default=True, cast=bool)
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="127.0.0.1,localhost", cast=Csv())
 
 INSTALLED_APPS = [
+    # Admin interface applications
+    'admin_interface',
+    'colorfield',
+    'dal',
+    'dal_select2',
+
+    # Django applications
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    # Third-party applications
+    'tabbed_admin',
+
+    # My applications
     "project.apps.accounts",
+    "project.apps.places",
     "project.apps.core",
+
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -77,16 +91,30 @@ TEMPLATES = [
 # ==============================================================================
 
 DATABASES = {
-    "default": dj_database_url.config(
-        default=config("DATABASE_URL", default="postgres://project:project@localhost:5432/project"),
-        conn_max_age=600,
-    )
+    'default': {
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+        'CONN_MAX_AGE': None,
+    }
 }
+
+# DATABASES = {
+#     "default": dj_database_url.config(
+#         default=config("DATABASE_URL", default="postgres://project:project@localhost:5432/project"),
+#         conn_max_age=600,
+#     )
+# }
 
 
 # ==============================================================================
 # AUTHENTICATION AND AUTHORIZATION SETTINGS
 # ==============================================================================
+
+AUTH_USER_MODEL = 'accounts.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -160,3 +188,12 @@ WHATSAPP_API_TOKEN = config('WHATSAPP_API_TOKEN', default='')  # TODO: Deprecate
 # ==============================================================================
 
 SIMPLE_ENVIRONMENT = config("SIMPLE_ENVIRONMENT", default="local")
+
+DEFAULT_SENTINEL_CUSTOMER_NAME = 'Consumidor não identificado'
+
+DEFAULT_CITY = 'Londrina'
+DEFAULT_STATE = 'Paraná'
+DEFAULT_STATE_CODE = 'PR'
+DEFAULT_COUNTRY = 'Brasil'
+DEFAULT_COUNTRY_CODE = 'BR'
+DEFAULT_ADDRESS_TAG = 'casa'

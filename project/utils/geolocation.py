@@ -1,7 +1,7 @@
 import geopy
 from django.conf import settings
 from django.contrib.gis.geos import Point
-from apps.places.models import Country, State, City
+from project.apps.places.models import Country, State, City
 
 
 def point_to_address(point, instance):

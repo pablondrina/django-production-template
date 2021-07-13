@@ -19,8 +19,8 @@ from mapwidgets import GooglePointFieldWidget
 from phonenumber_field.phonenumber import PhoneNumber
 from phonenumber_field.validators import validate_international_phonenumber
 
-from apps.places.models import Address, Country, State, City
-from utils import whatsapp, functions
+from project.apps.places.models import Address, Country, State, City
+from project.utils import whatsapp, functions
 
 User = get_user_model()
 
@@ -446,7 +446,7 @@ class ProfileUpdateForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'phone', 'email', 'password')
+        fields = ('first_name', 'last_name', 'email', 'password') #'phone',
 
 
 class PwdResetForm(forms.Form):
